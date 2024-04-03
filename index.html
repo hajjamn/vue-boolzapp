@@ -48,102 +48,30 @@
           <!-- SIDEBAR CONTACTS -->
           <div class="sidebar-contacts grow-1 overflow-scroll">
             <ul class="contacts-list">
-              <!-- CONTACT ITEM -->
-              <li class="contact-item flex">
+              <!-- CONTACTS-->
+              <li v-for="(contact, i) in contacts" class="contact-item flex">
                 <div class="contact-avatar shrink-0">
-                  <img src="./img/avatar_1.jpg" alt="" class="contact-avatar-pic">
+                  <img :src="contact.avatar" alt="" class="contact-avatar-pic">
                 </div>
-                <!-- CONTACT INFO -->
+                <!-- INFO -->
                 <div class="contact-info column grow-1">
-                  <div class="contact-name">Michele</div>
-                  <div class="contact-message">Lorem ipsum dolor sit amet.</div>
-                  <div class="contact-time">16:05</div>
+                  <div class="contact-name">{{contact.name}}</div>
+                  <div class="contact-message">{{contact.messages[contact.messages.length - 1].message}}</div>
+                  <div class="contact-time">{{this.getLastSentMessage(contact)}}</div>
                 </div>
               </li>
               <!-- CONTACT ITEM -->
-              <li class="contact-item flex">
+<!--               <li class="contact-item flex">
                 <div class="contact-avatar shrink-0">
                   <img src="./img/avatar_2.jpg" alt="" class="contact-avatar-pic">
-                </div>
+                </div> -->
                 <!-- CONTACT INFO -->
-                <div class="contact-info column grow-1">
+<!--                 <div class="contact-info column grow-1">
                   <div class="contact-name">Fabio</div>
                   <div class="contact-message">Lorem ipsum dolor sit amet.</div>
                   <div class="contact-time">16:03</div>
                 </div>
-              </li>
-              <!-- CONTACT ITEM -->
-              <li class="contact-item flex">
-                <div class="contact-avatar shrink-0">
-                  <img src="./img/avatar_3.jpg" alt="" class="contact-avatar-pic">
-                </div>
-                <!-- CONTACT INFO -->
-                <div class="contact-info column grow-1">
-                  <div class="contact-name">Samuele</div>
-                  <div class="contact-message">Lorem ipsum dolor sit amet.</div>
-                  <div class="contact-time">15:50</div>
-                </div>
-              </li>
-              <!-- CONTACT ITEM -->
-              <li class="contact-item flex">
-                <div class="contact-avatar shrink-0">
-                  <img src="./img/avatar_4.jpg" alt="" class="contact-avatar-pic">
-                </div>
-                <!-- CONTACT INFO -->
-                <div class="contact-info column grow-1">
-                  <div class="contact-name">Alessandro B.</div>
-                  <div class="contact-message">Lorem ipsum dolor sit amet.</div>
-                  <div class="contact-time">15:45</div>
-                </div>
-              </li>
-              <!-- CONTACT ITEM -->
-              <li class="contact-item flex">
-                <div class="contact-avatar shrink-0">
-                  <img src="./img/avatar_5.jpg" alt="" class="contact-avatar-pic">
-                </div>
-                <!-- CONTACT INFO -->
-                <div class="contact-info column grow-1">
-                  <div class="contact-name">Alessandro L.</div>
-                  <div class="contact-message">Lorem ipsum dolor sit amet.</div>
-                  <div class="contact-time">15:45</div>
-                </div>
-              </li>
-              <!-- CONTACT ITEM -->
-              <li class="contact-item flex">
-                <div class="contact-avatar shrink-0">
-                  <img src="./img/avatar_6.jpg" alt="" class="contact-avatar-pic">
-                </div>
-                <!-- CONTACT INFO -->
-                <div class="contact-info column grow-1">
-                  <div class="contact-name">Claudia</div>
-                  <div class="contact-message">Lorem ipsum dolor sit amet.</div>
-                  <div class="contact-time">15:40</div>
-                </div>
-              </li>
-              <!-- CONTACT ITEM -->
-              <li class="contact-item flex">
-                <div class="contact-avatar shrink-0">
-                  <img src="./img/avatar_7.jpg" alt="" class="contact-avatar-pic">
-                </div>
-                <!-- CONTACT INFO -->
-                <div class="contact-info column grow-1">
-                  <div class="contact-name">Federico</div>
-                  <div class="contact-message">Lorem ipsum dolor sit amet.</div>
-                  <div class="contact-time">15:22</div>
-                </div>
-              </li>
-              <!-- CONTACT ITEM -->
-              <li class="contact-item flex">
-                <div class="contact-avatar shrink-0">
-                  <img src="./img/avatar_8.jpg" alt="" class="contact-avatar-pic">
-                </div>
-                <!-- CONTACT INFO -->
-                <div class="contact-info column grow-1">
-                  <div class="contact-name">Davide</div>
-                  <div class="contact-message">Lorem ipsum dolor sit amet.</div>
-                  <div class="contact-time">15:15</div>
-                </div>
-              </li>
+              </li> -->
             </ul>
           </div>
         </aside>
