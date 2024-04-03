@@ -3,7 +3,7 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
-      message: 'Hello Vue!',
+      currentContactIndex: 0,
       contacts: [
         {
         name: 'Michele',

@@ -14,7 +14,6 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
   <div id="app">
-    {{ message }}
     <div class="container app-container">
       <div class="row app-row">
         <!-- SIDEBAR -->
@@ -49,29 +48,17 @@
           <div class="sidebar-contacts grow-1 overflow-scroll">
             <ul class="contacts-list">
               <!-- CONTACTS-->
-              <li v-for="(contact, i) in contacts" class="contact-item flex">
+              <li v-for="(contact, i) in contacts" class="contact-item flex" @click="currentContactIndex = i">
                 <div class="contact-avatar shrink-0">
                   <img :src="contact.avatar" alt="" class="contact-avatar-pic">
                 </div>
                 <!-- INFO -->
                 <div class="contact-info column grow-1">
                   <div class="contact-name">{{contact.name}}</div>
-                  <div class="contact-message">{{contact.messages[contact.messages.length - 1].message}}</div>
-                  <div class="contact-time">{{this.getLastSentMessage(contact)}}</div>
+                  <div class="contact-message">Aggiusta</div>
+                  <div class="contact-time">aggiusta</div>
                 </div>
               </li>
-              <!-- CONTACT ITEM -->
-<!--               <li class="contact-item flex">
-                <div class="contact-avatar shrink-0">
-                  <img src="./img/avatar_2.jpg" alt="" class="contact-avatar-pic">
-                </div> -->
-                <!-- CONTACT INFO -->
-<!--                 <div class="contact-info column grow-1">
-                  <div class="contact-name">Fabio</div>
-                  <div class="contact-message">Lorem ipsum dolor sit amet.</div>
-                  <div class="contact-time">16:03</div>
-                </div>
-              </li> -->
             </ul>
           </div>
         </aside>
@@ -80,11 +67,11 @@
           <!-- CONTENT HEADER -->
           <div class="content-header flex align-center justify-between shrink-0">
             <div class="contact-avatar shrink-0">
-              <img src="./img/avatar_1.jpg" alt="" class="contact-avatar-pic">
+              <img :src="contacts[currentContactIndex].avatar" alt="" class="contact-avatar-pic">
             </div>
             <div class="contact-info column grow-1">
-              <div class="contact-name">Michele</div>
-              <div class="contact-message">Ultimo accesso oggi alle 16:26</div>
+              <div class="contact-name">{{contacts[currentContactIndex].name}}</div>
+              <div class="contact-message">Ultimo accesso {{contacts[currentContactIndex].messages[0].date}}</div>
             </div>
             <ul class="content-header-list">
               <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
@@ -95,37 +82,39 @@
           <!-- CONTENT BODY -->
           <div class="content-body grow-1 overflow-scroll">
             <!-- USER MESSAGE -->
-            <div class="content-message-user flex">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nemo rerum impedit dolores, cupiditate ut ipsam quaerat! Eaque doloremque tempora dignissimos quod assumenda totam sequi minus, atque amet sed pariatur!
-              </p>
-              <span>16:13</span>
-              <i class="fa-solid fa-chevron-down content-message-icon"></i>
-              <div class="message-actions">
-                <ul class="message-action-menu">
-                  <li><a href="#">Reply</a></li>
-                  <li><a href="#">Reply privately</a></li>
-                  <li><a href="#">Reply react</a></li>
-                  <li><a href="#">Forward</a></li>
-                  <li><a href="#">Pin</a></li>
-                </ul>
+            <div v-for="message in contacts[currentContactIndex].messages" >
+              <div v-if="message.status === 'sent' " class="content-message-user flex">
+                <p>
+                  {{message.message}}
+                </p>
+                <span>{{message.date}}</span>
+                <i class="fa-solid fa-chevron-down content-message-icon"></i>
+                <div class="message-actions">
+                  <ul class="message-action-menu">
+                    <li><a href="#">Reply</a></li>
+                    <li><a href="#">Reply privately</a></li>
+                    <li><a href="#">Reply react</a></li>
+                    <li><a href="#">Forward</a></li>
+                    <li><a href="#">Pin</a></li>
+                  </ul>
+                </div>
               </div>
-            </div>
-            <!-- CONTACT MESSAGE -->
-            <div class="content-message-contact flex">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nemo rerum impedit dolores, cupiditate ut ipsam quaerat! Eaque doloremque tempora dignissimos quod assumenda totam sequi minus, atque amet sed pariatur!
-              </p>
-              <span>16:13</span>
-              <i class="fa-solid fa-chevron-down content-message-icon"></i>
-              <div class="message-actions">
-                <ul class="message-action-menu">
-                  <li><a href="#">Reply</a></li>
-                  <li><a href="#">Reply privately</a></li>
-                  <li><a href="#">Reply react</a></li>
-                  <li><a href="#">Forward</a></li>
-                  <li><a href="#">Pin</a></li>
-                </ul>
+              <!-- CONTACT MESSAGE -->
+              <div v-if="message.status === 'received' "  class="content-message-contact flex">
+                <p>
+                  {{message.message}}
+                </p>
+                <span>{{message.date}}</span>
+                <i class="fa-solid fa-chevron-down content-message-icon"></i>
+                <div class="message-actions">
+                  <ul class="message-action-menu">
+                    <li><a href="#">Reply</a></li>
+                    <li><a href="#">Reply privately</a></li>
+                    <li><a href="#">Reply react</a></li>
+                    <li><a href="#">Forward</a></li>
+                    <li><a href="#">Pin</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

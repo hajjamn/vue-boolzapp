@@ -365,6 +365,7 @@
         border-bottom: 1px solid #F5F5F5;
         padding-top: var(--gutter);
         padding-bottom: var(--gutter);
+        cursor: pointer;
       }
 
         /* CONTACT AVATAR */
@@ -524,6 +525,10 @@
         top: 30px;
         transform-origin: top;
         animation: slideout 0.5s ease-in-out, fade-in 0.5s ease-in-out 0.5s forwards;
+      }
+
+      .content-message-icon {
+        cursor: pointer;
       }
 
       .content-message-icon:hover + .message-actions {
