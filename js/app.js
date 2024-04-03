@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
+      newMessageText: null,
       currentContactIndex: 0,
       contacts: [
         {
@@ -176,6 +177,23 @@ createApp({
       } else {
         return [];
       }
-    }
+    },
+    sendNewMessage() {
+       this.contacts[this.currentContactIndex].messages.push({
+        date: 'Ora',
+        message: this.newMessageText,
+        status: 'sent'
+      });
+      this.newMessageText = null 
+      setTimeout( () => this.autoReply(), 1000 )
+    },
+    autoReply() {
+      this.contacts[this.currentContactIndex].messages.push({
+        date: 'Ora',
+        message: 'Ok',
+        status: 'received'
+      });
+      this.newMessageText = null 
+    },
   },
 }).mount('#app')
