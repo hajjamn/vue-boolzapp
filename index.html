@@ -41,14 +41,26 @@
           </div>
           <!-- SIDEBAR SEARCHBAR -->
           <div class="sidebar-searchbar shrink-0 flex align-center">
-            <input type="text" placeholder="Cerca o inizia una nuova chat">
+            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="contactSearch" @keyup="filterContacts(contactSearch)">
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
           <!-- SIDEBAR CONTACTS -->
           <div class="sidebar-contacts grow-1 overflow-scroll">
             <ul class="contacts-list">
               <!-- CONTACTS-->
-              <li v-for="(contact, i) in contacts" class="contact-item flex" @click="currentContactIndex = i">
+              <li v-if="contactSearch === null" v-for="(contact, i) in contacts" class="contact-item flex" @click="currentContactIndex = i">
+                <div class="contact-avatar shrink-0">
+                  <img :src="contact.avatar" alt="" class="contact-avatar-pic">
+                </div>
+                <!-- INFO -->
+                <div class="contact-info column grow-1">
+                  <div class="contact-name">{{contact.name}}</div>
+                  <div class="contact-message">{{ (getLastMessage(contact.messages)).message }}</div>
+                  <div class="contact-time">{{ (getLastMessage(contact.messages)).date }}</div>
+                </div>
+              </li>
+              <!-- CONTACTS-->
+              <li v-else v-for="(contact, i) in filteredContacts" class="contact-item flex" @click="currentContactIndex = i">
                 <div class="contact-avatar shrink-0">
                   <img :src="contact.avatar" alt="" class="contact-avatar-pic">
                 </div>
