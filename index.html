@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/4411155b30.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./css/app.css">
+  <title>Boolzapp</title>
+</head>
+<body class="debug">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <div id="app">
+    {{ message }}
+    <div class="container app-container">
+      <div class="row app-row">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar flex column shrink-0">
+          <!-- SIDEBAR HEADER -->
+          <div class="sidebar-header flex align-center justify-between shrink-0">
+            <div class="contact-avatar shrink-0">
+              <img src="./img/avatar_io.jpg" alt="" class="contact-avatar-pic">
+            </div>
+            <ul class="sidebar-header-list">
+              <li><a href="#"><i class="fa-solid fa-circle-notch"></i></a></li>
+              <li><a href="#"><i class="fa-solid fa-message"></i></a></li>
+              <li><a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a></li>
+            </ul>
+          </div>
+          <!-- SIDEBAR NOTIFICATION -->
+          <div class="sidebar-notification flex align-center">
+            <div class="notification-bell shrink-0">
+              <i class="fa-solid fa-bell-slash notification-icon"></i>
+            </div>
+            <div class="notification-text grow-1 column justify-center flex">
+              <strong>Ricevi notifiche di nuovi messaggi</strong>
+              <p>Attiva notifiche desktop</p>
+            </div>
+          </div>
+          <!-- SIDEBAR SEARCHBAR -->
+          <div class="sidebar-searchbar shrink-0 flex align-center">
+            <input type="text" placeholder="Cerca o inizia una nuova chat">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <!-- SIDEBAR CONTACTS -->
+          <div class="sidebar-contacts grow-1 overflow-scroll">
+            <ul class="contacts-list">
+              <!-- CONTACT ITEM -->
+              <li class="contact-item flex">
+                <div class="contact-avatar shrink-0">
+                  <img src="./img/avatar_1.jpg" alt="" class="contact-avatar-pic">
+                </div>
+                <!-- CONTACT INFO -->
+                <div class="contact-info column grow-1">
+                  <div class="contact-name">Michele</div>
+                  <div class="contact-message">Lorem ipsum dolor sit amet.</div>
+                  <div class="contact-time">16:05</div>
+                </div>
+              </li>
+              <!-- CONTACT ITEM -->
+              <li class="contact-item flex">
+                <div class="contact-avatar shrink-0">
+                  <img src="./img/avatar_2.jpg" alt="" class="contact-avatar-pic">
+                </div>
+                <!-- CONTACT INFO -->
+                <div class="contact-info column grow-1">
+                  <div class="contact-name">Fabio</div>
+                  <div class="contact-message">Lorem ipsum dolor sit amet.</div>
+                  <div class="contact-time">16:03</div>
+                </div>
+              </li>
+              <!-- CONTACT ITEM -->
+              <li class="contact-item flex">
+                <div class="contact-avatar shrink-0">
+                  <img src="./img/avatar_3.jpg" alt="" class="contact-avatar-pic">
+                </div>
+                <!-- CONTACT INFO -->
+                <div class="contact-info column grow-1">
+                  <div class="contact-name">Samuele</div>
+                  <div class="contact-message">Lorem ipsum dolor sit amet.</div>
+                  <div class="contact-time">15:50</div>
+                </div>
+              </li>
+              <!-- CONTACT ITEM -->
+              <li class="contact-item flex">
+                <div class="contact-avatar shrink-0">
+                  <img src="./img/avatar_4.jpg" alt="" class="contact-avatar-pic">
+                </div>
+                <!-- CONTACT INFO -->
+                <div class="contact-info column grow-1">
+                  <div class="contact-name">Alessandro B.</div>
+                  <div class="contact-message">Lorem ipsum dolor sit amet.</div>
+                  <div class="contact-time">15:45</div>
+                </div>
+              </li>
+              <!-- CONTACT ITEM -->
+              <li class="contact-item flex">
+                <div class="contact-avatar shrink-0">
+                  <img src="./img/avatar_5.jpg" alt="" class="contact-avatar-pic">
+                </div>
+                <!-- CONTACT INFO -->
+                <div class="contact-info column grow-1">
+                  <div class="contact-name">Alessandro L.</div>
+                  <div class="contact-message">Lorem ipsum dolor sit amet.</div>
+                  <div class="contact-time">15:45</div>
+                </div>
+              </li>
+              <!-- CONTACT ITEM -->
+              <li class="contact-item flex">
+                <div class="contact-avatar shrink-0">
+                  <img src="./img/avatar_6.jpg" alt="" class="contact-avatar-pic">
+                </div>
+                <!-- CONTACT INFO -->
+                <div class="contact-info column grow-1">
+                  <div class="contact-name">Claudia</div>
+                  <div class="contact-message">Lorem ipsum dolor sit amet.</div>
+                  <div class="contact-time">15:40</div>
+                </div>
+              </li>
+              <!-- CONTACT ITEM -->
+              <li class="contact-item flex">
+                <div class="contact-avatar shrink-0">
+                  <img src="./img/avatar_7.jpg" alt="" class="contact-avatar-pic">
+                </div>
+                <!-- CONTACT INFO -->
+                <div class="contact-info column grow-1">
+                  <div class="contact-name">Federico</div>
+                  <div class="contact-message">Lorem ipsum dolor sit amet.</div>
+                  <div class="contact-time">15:22</div>
+                </div>
+              </li>
+              <!-- CONTACT ITEM -->
+              <li class="contact-item flex">
+                <div class="contact-avatar shrink-0">
+                  <img src="./img/avatar_8.jpg" alt="" class="contact-avatar-pic">
+                </div>
+                <!-- CONTACT INFO -->
+                <div class="contact-info column grow-1">
+                  <div class="contact-name">Davide</div>
+                  <div class="contact-message">Lorem ipsum dolor sit amet.</div>
+                  <div class="contact-time">15:15</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </aside>
+        <!-- CONTENT -->
+        <div class="app-content flex column grow-1">
+          <!-- CONTENT HEADER -->
+          <div class="content-header flex align-center justify-between shrink-0">
+            <div class="contact-avatar shrink-0">
+              <img src="./img/avatar_1.jpg" alt="" class="contact-avatar-pic">
+            </div>
+            <div class="contact-info column grow-1">
+              <div class="contact-name">Michele</div>
+              <div class="contact-message">Ultimo accesso oggi alle 16:26</div>
+            </div>
+            <ul class="content-header-list">
+              <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+              <li><a href="#"><i class="fa-solid fa-paperclip"></i></a></li>
+              <li><a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a></li>
+            </ul>
+          </div>
+          <!-- CONTENT BODY -->
+          <div class="content-body grow-1 overflow-scroll">
+            <!-- USER MESSAGE -->
+            <div class="content-message-user flex">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nemo rerum impedit dolores, cupiditate ut ipsam quaerat! Eaque doloremque tempora dignissimos quod assumenda totam sequi minus, atque amet sed pariatur!
+              </p>
+              <span>16:13</span>
+              <i class="fa-solid fa-chevron-down content-message-icon"></i>
+              <div class="message-actions">
+                <ul class="message-action-menu">
+                  <li><a href="#">Reply</a></li>
+                  <li><a href="#">Reply privately</a></li>
+                  <li><a href="#">Reply react</a></li>
+                  <li><a href="#">Forward</a></li>
+                  <li><a href="#">Pin</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- CONTACT MESSAGE -->
+            <div class="content-message-contact flex">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nemo rerum impedit dolores, cupiditate ut ipsam quaerat! Eaque doloremque tempora dignissimos quod assumenda totam sequi minus, atque amet sed pariatur!
+              </p>
+              <span>16:13</span>
+              <i class="fa-solid fa-chevron-down content-message-icon"></i>
+              <div class="message-actions">
+                <ul class="message-action-menu">
+                  <li><a href="#">Reply</a></li>
+                  <li><a href="#">Reply privately</a></li>
+                  <li><a href="#">Reply react</a></li>
+                  <li><a href="#">Forward</a></li>
+                  <li><a href="#">Pin</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- CONTENT FOOTER -->
+          <div class="content-footer flex align-center">
+            <a href="#" class="content-footer-icon shrink-0">
+              <i class="fa-regular fa-face-smile"></i>
+            </a>
+            <input type="text" placeholder="Cerca o inizia una nuova chat" class="grow-1">
+            <a href="#" class="content-footer-icon shrink-0">
+              <i class="fa-solid fa-microphone"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/4411155b30.js" crossorigin="anonymous"></script>
+</body>
+</html>
