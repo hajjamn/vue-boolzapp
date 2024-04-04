@@ -46,17 +46,17 @@
           </div>
           <!-- SIDEBAR CONTACTS -->
           <div class="sidebar-contacts grow-1 overflow-scroll">
-            <ul class="contacts-list">
+            <ul class="contacts-list" v-if="filteredContacts.length" >
               <!-- CONTACTS-->
-              <li v-if="filteredContacts.length" v-for="(contact, i) in filteredContacts" class="contact-item flex" @click="currentContactIndex = i" :class=" i === currentContactIndex ? 'active' : '' " >
+              <li v-for="(contact, i) in filteredContacts" class="contact-item flex" @click="currentContact = filteredContacts[i]" :class=" i === currentContactIndex ? 'active' : '' " >
                 <div class="contact-avatar shrink-0">
                   <img :src="contact.avatar" alt="" class="contact-avatar-pic">
                 </div>
                 <!-- INFO -->
                 <div class="contact-info column grow-1">
                   <div class="contact-name">{{contact.name}}</div>
-                  <div class="contact-message">{{ (getLastMessage(contact.messages)).message }}</div>
-                  <div class="contact-time">{{ (getLastMessage(contact.messages)).date.slice(11,16) }}</div>
+                  <div class="contact-message">{{ getLastMessage(contact.messages)?.message }}</div>
+                  <div class="contact-time">{{ getLastMessage(contact.messages)?.date?.slice(11,16) }}</div>
                 </div>
               </li>
             </ul>

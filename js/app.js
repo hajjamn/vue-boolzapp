@@ -3,9 +3,9 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
+      currentContact: {},
       contactSearch: '',
       newMessageText: null,
-      currentContactIndex: 0,
       contacts: [
         {
           name: 'Michele',
@@ -176,12 +176,12 @@ createApp({
       if (messages.length) {
         return messages[messages.length - 1];
       } else {
-        return [];
+        return {};
       }
     },
     sendNewMessage() {
-       this.contacts[this.currentContactIndex].messages.push({
-        date: 'Ora',
+       this.currentContact.messages.push({
+        date: '##/##/#### Ora',
         message: this.newMessageText,
         status: 'sent'
       });
@@ -189,8 +189,8 @@ createApp({
       setTimeout( () => this.autoReply(), 1000 )
     },
     autoReply() {
-      this.contacts[this.currentContactIndex].messages.push({
-        date: 'Ora',
+      this.currentContact.messages.push({
+        date: '##/##/#### Ora',
         message: 'Ok',
         status: 'received'
       });
@@ -202,11 +202,14 @@ createApp({
       if (this.contactSearch === '') {
         return this.contacts
       } else {
-        return this.contacts.filter((contactBeingChecked) => contactBeingChecked.name.includes(this.contactSearch) )
+        return this.contacts.filter((el) => el.name.includes(this.contactSearch) )
       }
     },
-    currentContact() {
-      return this.filteredContacts[this.currentContactIndex]
+    currentContactIndex() {
+      return this.filteredContacts.map((element) => element.name).indexOf(this.currentContact.name)
     }
   },
+  created() {
+    this.currentContact = this.contacts[0];
+  }
 }).mount('#app')
