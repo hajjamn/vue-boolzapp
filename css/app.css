@@ -539,12 +539,16 @@
         cursor: pointer;
       }
 
-      .content-message-icon:hover + .message-actions {
+      .content-message-icon.active + .message-actions {
         display: block;
       }
 
       .message-action-menu {
         padding: 10px 0;
+      }
+
+      .message-action-menu li:hover{
+        background-color: var(--footer-color);
       }
 
       .message-action-menu a {

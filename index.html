@@ -82,20 +82,17 @@
           <!-- CONTENT BODY -->
           <div class="content-body grow-1 overflow-scroll">
             <!-- USER MESSAGE -->
-            <div v-for="message in currentContact.messages" >
+            <div v-for="(message, i) in currentContact.messages" >
               <div v-if="message.status === 'sent' " class="content-message-user flex">
                 <p>
                   {{message.message}}
                 </p>
                 <span>{{message.date.slice(11,16)}}</span>
-                <i class="fa-solid fa-chevron-down content-message-icon"></i>
+                <i class="fa-solid fa-chevron-down content-message-icon" @click="element => element.target.classList.toggle('active')" ></i>
                 <div class="message-actions">
                   <ul class="message-action-menu">
-                    <li><a href="#">Reply</a></li>
-                    <li><a href="#">Reply privately</a></li>
-                    <li><a href="#">Reply react</a></li>
-                    <li><a href="#">Forward</a></li>
-                    <li><a href="#">Pin</a></li>
+                    <li><a href="#">Info</a></li>
+                    <li @click="currentContact.messages.splice(i, 1)" ><a href="#">Cancella</a></li>
                   </ul>
                 </div>
               </div>
@@ -105,14 +102,11 @@
                   {{message.message}}
                 </p>
                 <span>{{message.date.slice(11,16)}}</span>
-                <i class="fa-solid fa-chevron-down content-message-icon"></i>
+                <i class="fa-solid fa-chevron-down content-message-icon" @click="element => element.target.classList.toggle('active')"></i>
                 <div class="message-actions">
                   <ul class="message-action-menu">
-                    <li><a href="#">Reply</a></li>
-                    <li><a href="#">Reply privately</a></li>
-                    <li><a href="#">Reply react</a></li>
-                    <li><a href="#">Forward</a></li>
-                    <li><a href="#">Pin</a></li>
+                    <li><a href="#">Info</a></li>
+                    <li @click="currentContact.messages.splice(i, 1)" ><a href="#">Cancella</a></li>
                   </ul>
                 </div>
               </div>
