@@ -3,7 +3,7 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
-      contactSearch: null,
+      contactSearch: '',
       newMessageText: null,
       currentContactIndex: 0,
       contacts: [
@@ -169,7 +169,6 @@ createApp({
           ],
         }
       ],
-      filteredContacts: [],
     }
   },
   methods: {
@@ -197,11 +196,14 @@ createApp({
       });
       this.newMessageText = null 
     },
-    filterContacts(word) {
-      this.filteredContacts = this.filteredContacts.filter((contact) => contact.name.includes(word) === true)
-    }
   },
-  mounted() {
-    this.filteredContacts = this.contacts
+  computed: {
+    filteredContacts() {
+      if (this.contactSearch === '') {
+        return this.contacts
+      } else {
+        return this.contacts.filter((contactBeingChecked) => contactBeingChecked.name.includes(this.contactSearch) )
+      }
+    }
   },
 }).mount('#app')

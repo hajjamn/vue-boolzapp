@@ -372,6 +372,10 @@
         cursor: pointer;
       }
 
+      .contact-item.active, .contact-item:hover {
+        background-color: var(--footer-color);
+      }
+
         /* CONTACT AVATAR */
 
       /* CONTACT INFO */
