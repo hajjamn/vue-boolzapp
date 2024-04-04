@@ -204,6 +204,9 @@ createApp({
       } else {
         return this.contacts.filter((contactBeingChecked) => contactBeingChecked.name.includes(this.contactSearch) )
       }
+    },
+    currentContact() {
+      return this.filteredContacts[this.currentContactIndex]
     }
   },
 }).mount('#app')

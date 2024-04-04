@@ -41,14 +41,14 @@
           </div>
           <!-- SIDEBAR SEARCHBAR -->
           <div class="sidebar-searchbar shrink-0 flex align-center">
-            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="contactSearch" @keyup="filterContacts(contactSearch)">
+            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="contactSearch">
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
           <!-- SIDEBAR CONTACTS -->
           <div class="sidebar-contacts grow-1 overflow-scroll">
             <ul class="contacts-list">
               <!-- CONTACTS-->
-              <li v-for="(contact, i) in filteredContacts" class="contact-item flex" @click="currentContactIndex = i" :class=" i === currentContactIndex ? 'active' : '' " >
+              <li v-if="filteredContacts.length" v-for="(contact, i) in filteredContacts" class="contact-item flex" @click="currentContactIndex = i" :class=" i === currentContactIndex ? 'active' : '' " >
                 <div class="contact-avatar shrink-0">
                   <img :src="contact.avatar" alt="" class="contact-avatar-pic">
                 </div>
@@ -56,7 +56,7 @@
                 <div class="contact-info column grow-1">
                   <div class="contact-name">{{contact.name}}</div>
                   <div class="contact-message">{{ (getLastMessage(contact.messages)).message }}</div>
-                  <div class="contact-time">{{ (getLastMessage(contact.messages)).date }}</div>
+                  <div class="contact-time">{{ (getLastMessage(contact.messages)).date.slice(11,16) }}</div>
                 </div>
               </li>
             </ul>
@@ -67,11 +67,11 @@
           <!-- CONTENT HEADER -->
           <div class="content-header flex align-center justify-between shrink-0">
             <div class="contact-avatar shrink-0">
-              <img :src="contacts[currentContactIndex].avatar" alt="" class="contact-avatar-pic">
+              <img :src="currentContact.avatar" alt="" class="contact-avatar-pic">
             </div>
             <div class="contact-info column grow-1">
-              <div class="contact-name">{{contacts[currentContactIndex].name}}</div>
-              <div class="contact-message">Ultimo accesso {{contacts[currentContactIndex].messages[0].date}}</div>
+              <div class="contact-name">{{currentContact.name}}</div>
+              <div class="contact-message">Ultimo accesso {{currentContact.messages[0].date.slice(0,16)}}</div>
             </div>
             <ul class="content-header-list">
               <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
@@ -82,12 +82,12 @@
           <!-- CONTENT BODY -->
           <div class="content-body grow-1 overflow-scroll">
             <!-- USER MESSAGE -->
-            <div v-for="message in contacts[currentContactIndex].messages" >
+            <div v-for="message in currentContact.messages" >
               <div v-if="message.status === 'sent' " class="content-message-user flex">
                 <p>
                   {{message.message}}
                 </p>
-                <span>{{message.date}}</span>
+                <span>{{message.date.slice(11,16)}}</span>
                 <i class="fa-solid fa-chevron-down content-message-icon"></i>
                 <div class="message-actions">
                   <ul class="message-action-menu">
@@ -104,7 +104,7 @@
                 <p>
                   {{message.message}}
                 </p>
-                <span>{{message.date}}</span>
+                <span>{{message.date.slice(11,16)}}</span>
                 <i class="fa-solid fa-chevron-down content-message-icon"></i>
                 <div class="message-actions">
                   <ul class="message-action-menu">
