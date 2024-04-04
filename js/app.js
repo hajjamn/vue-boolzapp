@@ -202,7 +202,7 @@ createApp({
       if (this.contactSearch === '') {
         return this.contacts
       } else {
-        return this.contacts.filter((el) => el.name.includes(this.contactSearch) )
+        return this.contacts.filter((el) => el.name.toLowerCase().includes(this.contactSearch.toLowerCase()) )
       }
     },
     currentContactIndex() {
